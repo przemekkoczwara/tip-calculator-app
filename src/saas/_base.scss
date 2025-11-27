@@ -1,5 +1,5 @@
 @use 'variables' as vars;
-
+@use 'mixins' as mix;
 *,
 *::before,
 *::after {
@@ -16,4 +16,18 @@ html {
 
 body {
   background: vars.$grey-200;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+
+  .logo {
+    width: 87px;
+    height: 54px;
+  }
+
+  @include mix.tablet {
+    padding: 0 80px;
+  }
 }

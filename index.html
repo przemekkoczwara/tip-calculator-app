@@ -16,10 +16,17 @@
     <img class="logo" src="/src/assets/logo.svg" alt="Splitter logo" />
     <main class="calculator__wrapper">
       <form>
-        <label for="amount">Bill</label>
-        <input type="number" name="amount" id="amount" placeholder="0" />
+        <label for="amount" class="label-bill">Bill</label>
+        <input
+          type="number"
+          name="amount"
+          class="amount-input"
+          id="amount"
+          placeholder="0"
+          required
+        />
         <label for="discount">Select Tip %</label>
-        <div class="discount__buttons">
+        <div class="discount__buttons" id="buttons">
           <button type="button" class="btn" data-tip="5">5%</button>
           <button type="button" class="btn" data-tip="10">10%</button>
           <button type="button" class="btn" data-tip="15">15%</button>
@@ -33,10 +40,20 @@
           type="number"
           class="custom-tip-button hidden"
           id="custom-tip-btn"
-          placeholder="Custom %"
+          placeholder="Custom % "
         />
-        <label for="people">Number of People</label>
-        <input type="number" name="people" id="people" placeholder="0" />
+        <div class="people__input__validate">
+          <label for="people">Number of People</label
+          ><span class="error">Can’t be zero</span>
+        </div>
+        <input
+          type="number"
+          name="people"
+          id="people"
+          placeholder="0"
+          required
+          max="8"
+        />
       </form>
       <section class="tip__result">
         <div class="amount">

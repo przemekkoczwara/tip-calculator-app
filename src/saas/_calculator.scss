@@ -4,13 +4,26 @@
 .calculator__wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  min-height: 100vh;
+  // min-height: 100vh;
   background: vars.$white;
   padding: 32px 24px;
   margin-top: 41px;
   border-radius: 25px 25px 0 0;
   box-shadow: 0 32px 43px 0 hsl(185, 38, 50);
   max-width: 920px;
+  width: 100%;
+
+  @include mix.tablet {
+    padding: 48px 80px;
+    border-radius: 25px;
+  }
+
+  @include mix.desktop {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 48px;
+    padding: 32px;
+  }
 }
 form {
   display: flex;
@@ -22,6 +35,13 @@ form {
     line-height: 24px;
     color: vars.$grey-500;
   }
+
+  .people__input__validate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   input {
     padding: 8px 16px;
     background: vars.$grey-50;
@@ -33,12 +53,34 @@ form {
     line-height: 36px;
     outline: none;
     text-align: right;
+    cursor: pointer;
+  }
+  input:focus {
+    border: 2px solid vars.$green-400;
+  }
+
+  .amount-input {
+    margin-bottom: 32px;
+
+    @include mix.tablet {
+      margin-bottom: 24px;
+    }
   }
   .discount__buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 16px;
+    margin-bottom: 32px;
+
+    @include mix.tablet {
+      margin-bottom: 24px;
+    }
+
+    @include mix.tablet {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
 
     .btn {
       background: vars.$green-900;
@@ -61,10 +103,6 @@ form {
       color: vars.$green-900;
     }
   }
-  // property for button custom
-  .hidden {
-    display: none;
-  }
 }
 
 // seciton tip__result
@@ -72,7 +110,17 @@ form {
 .tip__result {
   background: vars.$green-900;
   border-radius: 15px;
-  padding: 24px 24px 0;
+  padding: 24px 24px;
+  margin-top: 32px;
+
+  @include mix.tablet {
+    margin-top: 40px;
+    padding: 24px 32px;
+  }
+
+  @include mix.desktop {
+    margin-top: 0;
+  }
 }
 .amount,
 .tip__total {
@@ -98,6 +146,11 @@ form {
 .total-amount {
   font-size: 32px;
   color: vars.$green-400;
+
+  @include mix.tablet {
+    font-size: 48px;
+    line-height: 71px;
+  }
 }
 
 .amount {
@@ -105,6 +158,10 @@ form {
 }
 .tip__total {
   margin-bottom: 32px;
+
+  @include mix.desktop {
+    margin-bottom: 128px;
+  }
 }
 
 .reset-btn {
@@ -115,6 +172,19 @@ form {
   border-radius: 5px;
   border: none;
   font-size: 20px;
+  font-weight: 700;
   line-height: 30px;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+// property for button custom
+.hidden {
+  display: none;
+}
+// property for button != 0
+.error {
+  color: vars.$accent;
+  font-size: 16px;
+  line-height: 24px;
 }
