@@ -7,6 +7,42 @@
     <title>Tip Calculator App</title>
   </head>
   <body>
+    <main class="calculator__wrapper">
+      <form>
+        <label for="name">Bill</label>
+        <input type="number" name="amount" id="amount" placeholder="0" />
+        <div class="discount__buttons">
+          <button type="button" class="btn" data-tip="5">5%</button>
+          <button type="button" class="btn" data-tip="10">10%</button>
+          <button type="button" class="btn" data-tip="15">15%</button>
+          <button type="button" class="btn" data-tip="25">25%</button>
+          <button type="button" class="btn" data-tip="50">50%</button>
+          <button type="button" class="btn custom-btn" id="custom-btn">
+            Custom
+          </button>
+        </div>
+        <input
+          type="number"
+          class="custom-tip-button"
+          id="custom-btn"
+          placeholder="Custom %"
+          hidden
+        />
+        <label for="people">Number of People</label>
+        <input type="number" name="number of people" id="people" />
+      </form>
+      <section class="tip__result">
+        <div class="amount__details">
+          <p>Tip Amount</p>
+          <p class="tip-amount">$0.00</p>
+        </div>
+        <div class="tip__total">
+          <p>Total</p>
+          <p class="total-amount">$0.00</p>
+        </div>
+        <button type="button" class="reset-btn">Reset</button>
+      </section>
+    </main>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
