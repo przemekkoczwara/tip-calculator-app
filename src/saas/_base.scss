@@ -1,5 +1,19 @@
-// test
+@use 'variables' as vars;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 24px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+}
 
 body {
-  background-color: yellow;
+  background: vars.$grey-200;
 }

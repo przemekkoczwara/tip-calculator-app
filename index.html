@@ -5,12 +5,20 @@
     <link rel="icon" type="image/png" href="/public/favicon-32x32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tip Calculator App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <img class="logo" src="/src/assets/logo.svg" alt="Splitter logo" />
     <main class="calculator__wrapper">
       <form>
-        <label for="name">Bill</label>
+        <label for="amount">Bill</label>
         <input type="number" name="amount" id="amount" placeholder="0" />
+        <label for="discount">Select Tip %</label>
         <div class="discount__buttons">
           <button type="button" class="btn" data-tip="5">5%</button>
           <button type="button" class="btn" data-tip="10">10%</button>
@@ -23,21 +31,26 @@
         </div>
         <input
           type="number"
-          class="custom-tip-button"
-          id="custom-btn"
+          class="custom-tip-button hidden"
+          id="custom-tip-btn"
           placeholder="Custom %"
-          hidden
         />
         <label for="people">Number of People</label>
-        <input type="number" name="number of people" id="people" />
+        <input type="number" name="people" id="people" placeholder="0" />
       </form>
       <section class="tip__result">
-        <div class="amount__details">
-          <p>Tip Amount</p>
+        <div class="amount">
+          <div class="amount__details">
+            <p>Tip Amount</p>
+            <p>/person</p>
+          </div>
           <p class="tip-amount">$0.00</p>
         </div>
         <div class="tip__total">
-          <p>Total</p>
+          <div class="tip__details">
+            <p>Total</p>
+            <p>/person</p>
+          </div>
           <p class="total-amount">$0.00</p>
         </div>
         <button type="button" class="reset-btn">Reset</button>
